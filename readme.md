@@ -1,0 +1,1 @@
+Prepare wine and deps to test electron-builder on Travis macOs.
