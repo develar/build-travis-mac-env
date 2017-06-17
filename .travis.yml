@@ -5,7 +5,7 @@ language: c
 
 # gd fontconfig jasper libgphoto2 libicns
 
-before_install:
+script:
   - cd /usr/local/Cellar
   - brew install wine p7zip git-lfs gnu-tar dpkg xz freetype graphicsmagick --force-bottle
   - brew cleanup
