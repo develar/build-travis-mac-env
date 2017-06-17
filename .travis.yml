@@ -4,7 +4,8 @@ os: osx
 language: c
 
 before_install:
-  - brew install wine p7zip  --force-bottle
+  - cd /usr/local/Cellar
+  - brew install wine p7zip git-lfs gnu-tar dpkg xz --force-bottle
   - brew cleanup
   - brew prune
   - rm -f ~/wine.7z
