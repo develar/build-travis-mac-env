@@ -12,4 +12,4 @@ script:
   - brew prune
   - rm -f ~/wine.7z
   - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr!man -xr!doc ~/wine.7z gnutls libtasn1 libusb libusb-compat nettle openssl wine git-lfs gnu-tar dpkg xz freetype graphicsmagick
-  - curl -T ~/wine.7z -udevelar:${BT_API_KEY} "https://api.bintray.com/content/develar/bin/electron-builder-mac-test-bottle/2.0/wine.7z?override=1&publish=1"
+  - curl -T ~/wine.7z -udevelar:${BT_API_KEY} "https://api.bintray.com/content/develar/bin/electron-builder-mac-test-bottle/2.0/wine-2.0.7z?override=1&publish=1"
