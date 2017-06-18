@@ -7,11 +7,11 @@ language: c
 
 script:
   - cd /usr/local/Cellar
-  - brew install wine p7zip git-lfs gnu-tar dpkg xz freetype graphicsmagick --force-bottle
+  - brew install wine p7zip git-lfs gnu-tar dpkg xz --force-bottle --without-x11
   - brew cleanup
   - brew prune
   - rm -f ~/wine.7z
   - rm -rf /usr/local/Cellar/wine/*/share/wine/gecko
   - rm -rf /usr/local/Cellar/wine/*/share/wine/mono
-  - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr!man -xr!doc ~/wine.7z gnutls libtasn1 libusb libusb-compat nettle openssl wine git-lfs gnu-tar dpkg xz freetype graphicsmagick
+  - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr!man -xr!doc ~/wine.7z gnutls libtasn1 libusb libusb-compat nettle openssl wine git-lfs gnu-tar dpkg xz
   - curl -T ~/wine.7z -udevelar:${BT_API_KEY} "https://api.bintray.com/content/develar/bin/electron-builder-mac-test-bottle/2.0/wine-2.0.7z?override=1&publish=1"
