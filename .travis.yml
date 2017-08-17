@@ -3,18 +3,12 @@ os: osx
 
 language: c
 
-before_install:
-  - brew install p7zip --force-bottle
-
 script:
-  - ln -sf $PWD/github-release /usr/local/bin/github-release
-
-  # linux-tools
   - ./prepare.sh
-  - homebrew/bin/brew install gnu-tar xz lzip --force-bottle
+  - homebrew/bin/brew install gnu-tar xz lzip
   - cd homebrew
 
-  - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr'!man' -xr'!doc' -xr'!include' -xr'!CHANGES' /tmp/linux-tools-mac-10.12.1.7z bin Cellar lib opt
+  - ./vendor/7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr'!man' -xr'!doc' -xr'!include' -xr'!CHANGES' /tmp/linux-tools-mac-10.12.2.7z bin Cellar lib opt
 
-  - CHECKSUM=$(shasum -a 512 /tmp/linux-tools-mac-10.12.1.7z | xxd -r -p | base64)
-  - 'github-release electron-userland/electron-builder-binaries linux-tools-mac-10.12.1 master "Sha512: $CHECKSUM" /tmp/linux-tools-mac-10.12.1.7z'
+  - CHECKSUM=$(shasum -a 512 /tmp/linux-tools-mac-10.12.2.7z | xxd -r -p | base64)
+  - './vendor/github-release electron-userland/electron-builder-binaries linux-tools-mac-10.12.2 master "Sha512: $CHECKSUM" /tmp/linux-tools-mac-10.12.2.7z'
