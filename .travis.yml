@@ -6,7 +6,7 @@ language: c
 script:
   - export PATH=$PWD/vendor:$PATH
   - ./prepare.sh
-  - homebrew/bin/brew install lzip
+  - homebrew/bin/brew install lzip gnu-tar
   - cd homebrew
 
   - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr'!man' -xr'!doc' -xr'!include' -xr'!CHANGES' /tmp/linux-tools-mac-10.12.3.7z bin Cellar lib opt
