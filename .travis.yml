@@ -6,7 +6,7 @@ language: c
 script:
   - export PATH=$PWD/vendor:$PATH
   - ./prepare.sh
-  - homebrew/bin/brew install --force-bottle lzip gnu-tar desktop-file-utils glib libgsf
+  - homebrew/bin/brew install --force-bottle lzip gnu-tar libgsf
   - cd homebrew
 
   - |
@@ -50,7 +50,6 @@ script:
     end
 
   - bin/brew install osslsigncode --HEAD
-  - ./cleanup.sh
   - rm -f /tmp/linux-tools-mac-10.12.4.7z
   - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr'!man' -xr'!doc' -xr'!include' -xr'!CHANGES' /tmp/linux-tools-mac-10.12.3.7z bin Cellar opt
 
