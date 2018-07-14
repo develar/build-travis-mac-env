@@ -51,6 +51,7 @@ script:
 
   - bin/brew install osslsigncode --HEAD
   - rm -f /tmp/linux-tools-mac-10.12.4.7z
+  - bin/brew remove --force --ignore-dependencies autoconf automake pkg-config
   - 7za a -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=on -xr'!man' -xr'!doc' -xr'!include' -xr'!CHANGES' /tmp/linux-tools-mac-10.12.4.7z bin Cellar opt
 
   - CHECKSUM=$(shasum -a 512 /tmp/linux-tools-mac-10.12.4.7z | xxd -r -p | base64)
